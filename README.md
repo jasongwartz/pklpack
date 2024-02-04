@@ -9,7 +9,7 @@ pklpack <filename>.pkl
 # For example:
 pklpack examples/json2pcf.pkl
 # Then run your resulting binary:
-./json2pcf somefile.json
+./json2pcf -p in=somefile.json
 ```
 
 An executable will be written to the working directory, named the same as
@@ -48,6 +48,6 @@ You'll need a Node developer environment set up, and [`nvm`](https://github.com/
 - Run `nvm use`, to select the correct version of Node using [`nvm`](https://github.com/nvm-sh/nvm)
 - Run `npm install` to pull the dependencies
 - Either:
-  - run `npm build` to create the `pklpack` binary, then run `pklpack <filename>`, or
+  - run `npm run build` to create the `pklpack` binary, then run `pklpack <filename>`, or
   - run `npm run dev <filename>`, or
   - run `npx ts-node --esm src/generate.ts <filename>`
