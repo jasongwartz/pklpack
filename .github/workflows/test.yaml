@@ -1,0 +1,35 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+
+      - run: |
+          mkdir -p "{{ runner.temp }}/bin" && \
+          echo "{{ runner.temp }}/bin" >> "$GITHUB_PATH"
+
+      - uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: apple/pkl
+          # TODO: Parameterise version
+          # TODO: Test on range of Pkl versions using matrix
+          version: tags/0.25.1
+          file: pkl-linux-amd64
+          target: "{{ runner.temp }}/bin/pkl"
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - run: chmod +x "{{ runner.temp }}/bin/pkl"
+
+      - name: Run tests
+        run: npm test
