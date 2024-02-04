@@ -12,6 +12,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
       - run: npm ci
 
       - uses: dsaltares/fetch-gh-release-asset@master
