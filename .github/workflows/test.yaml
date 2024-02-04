@@ -21,7 +21,7 @@ jobs:
           repo: apple/pkl
           # TODO: Parameterise version
           # TODO: Test on range of Pkl versions using matrix
-          version: 0.25.1
+          version: tags/0.25.1
           file: pkl-linux-amd64
           target: /usr/bin
           token: ${{ secrets.GITHUB_TOKEN }}
