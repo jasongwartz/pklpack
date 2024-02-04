@@ -29,6 +29,7 @@ jobs:
           file: pkl-linux-amd64
           target: ~/.local/bin/pkl
           token: ${{ secrets.GITHUB_TOKEN }}
+      - run: chmod +x "$HOME/.local/bin/pkl"
 
       - name: Run tests
         run: npm test
