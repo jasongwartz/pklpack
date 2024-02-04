@@ -8,6 +8,8 @@ pklpack <filename>.pkl
 
 # For example:
 pklpack examples/json2pcf.pkl
+# Then run your resulting binary:
+./json2pcf somefile.json
 ```
 
 An executable will be written to the working directory, named the same as
