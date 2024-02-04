@@ -12,7 +12,7 @@ import which from "which";
   // TODO: Support multiple .pkl files with a command,
   //       or recursively walk imports.
 
-  const tmpdir = await mkdtemp(`/tmp/pkl-bundle-`);
+  const tmpdir = await mkdtemp(`/tmp/pklpack-`);
 
   // Lookup the path to the local installation of pkl.
   const pklBinary = (await which("pkl", { nothrow: true })) as string | null;

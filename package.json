@@ -2,7 +2,7 @@
   "type": "module",
   "scripts": {
     "dev": "ts-node --esm src/generate.ts",
-    "build": "tsc && caxa --input . --output pkl-bundle --exclude examples --exclude src --exclude pkl-bundle -- \"{{caxa}}/node_modules/.bin/node\" \"{{caxa}}/dist/generate.js\""
+    "build": "tsc && caxa --input . --output pklpack --exclude examples --exclude src --exclude pklpack -- \"{{caxa}}/node_modules/.bin/node\" \"{{caxa}}/dist/generate.js\""
   },
   "dependencies": {
     "caxa": "^3.0.1",
