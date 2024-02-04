@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "build": "caxa --input . --output pkl-bundle --exclude examples --exclude src --exclude pkl-bundle -- \"{{caxa}}/node_modules/.bin/node\" \"{{caxa}}/dist/generate.js\""
+    "dev": "ts-node --esm src/generate.ts",
+    "build": "tsc && caxa --input . --output pkl-bundle --exclude examples --exclude src --exclude pkl-bundle -- \"{{caxa}}/node_modules/.bin/node\" \"{{caxa}}/dist/generate.js\""
   },
   "dependencies": {
     "caxa": "^3.0.1",
@@ -9,6 +10,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.11.16",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
 }
