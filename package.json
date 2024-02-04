@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "dev": "ts-node --esm src/generate.ts",
+    "dev": "tsx src/generate.ts",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "build": "tsc && caxa --input . --output pklpack --exclude examples --exclude src --exclude pklpack -- \"{{caxa}}/node_modules/.bin/node\" \"{{caxa}}/dist/generate.js\""
   },
   "dependencies": {
@@ -9,8 +10,11 @@
     "which": "^4.0.0"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@types/node": "^20.11.16",
-    "ts-node": "^10.9.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   }
 }
