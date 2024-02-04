@@ -17,8 +17,8 @@ jobs:
       - run: npm ci
 
       - run: |
-          mkdir -p "$HOME/.local/bin" && \
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          mkdir -p "{{ runner.temp }}/bin" && \
+          echo "{{ runner.temp }}/bin" >> "$GITHUB_PATH"
 
       - uses: dsaltares/fetch-gh-release-asset@master
         with:
@@ -27,9 +27,9 @@ jobs:
           # TODO: Test on range of Pkl versions using matrix
           version: tags/0.25.1
           file: pkl-linux-amd64
-          target: ~/.local/bin/pkl
+          target: "{{ runner.temp }}/bin/pkl"
           token: ${{ secrets.GITHUB_TOKEN }}
-      - run: chmod +x "$HOME/.local/bin/pkl"
+      - run: chmod +x "{{ runner.temp }}/bin/pkl"
 
       - name: Run tests
         run: npm test
