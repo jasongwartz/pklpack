@@ -1,0 +1,6 @@
+import "pkl:json"
+
+output {
+    value = (new json.Parser {}).parse(read("file:\(read("prop:in"))"))
+    renderer = new PcfRenderer {}
+}

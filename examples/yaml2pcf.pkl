@@ -1,0 +1,6 @@
+import "pkl:yaml"
+
+output {
+    value = (new yaml.Parser {}).parse(read("file:\(read("prop:in"))"))
+    renderer = new PcfRenderer {}
+}

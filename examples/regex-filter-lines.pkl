@@ -1,0 +1,13 @@
+// Usage:
+// ```
+// regex-filter-lines -p re="\d.+" < lines_that_might_start_with_numbers.txt
+// ```
+
+output {
+    text = read("/dev/stdin").text
+        .split("\n")
+        .filter((line) ->
+            line.matches(Regex(read("prop:re"))
+        ))
+        .join("\n") + "\n"
+}
